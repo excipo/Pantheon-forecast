@@ -1,0 +1,19 @@
+form {
+    font-size: 11px;
+    margin-left: auto;
+    margin-right: auto;
+    mat-form-field {
+        margin: 10px;
+        width: 20%;
+    }
+
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+}
+.error-message{
+    color: red;
+}
+.pad-top{
+    padding-top: 20px;
+}

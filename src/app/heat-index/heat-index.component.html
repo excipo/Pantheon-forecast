@@ -1,0 +1,47 @@
+<form class="example-form">
+
+    <mat-form-field class="example-full-width" appearance="fill" primary>
+        <mat-label>Temperature</mat-label>
+        <input matInput type="number" name="temperature" #temperature>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Measure unit</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Humidity</mat-label>
+        <span matSuffix>% </span>
+        <input matInput type="number" name="humidity" #humidity>
+    </mat-form-field>
+
+
+    <button mat-button (click)="calculateHeatIndex(temperature.value,humidity.value,selectedValue)">
+        Calculate
+    </button>
+
+
+</form>
+<div *ngIf="errorMessage" class="error-message">
+    <span>{{errorMessage}}</span>
+</div>
+
+<div *ngIf="result && selectedValue===resultType">
+    <span>Heat Index Temperature: {{ result }}</span>
+    <span *ngIf="selectedValue==='1'">&nbsp;°C</span>
+    <span *ngIf="selectedValue==='2'">&nbsp;°F</span>
+</div>
+<table *ngIf="storedItems" mat-table [dataSource]="storedItems" class="pad-top mat-elevation-z8 ">
+    <ng-container matColumnDef="results">
+        <th mat-header-cell *matHeaderCellDef> History: </th>
+        <td mat-cell *matCellDef="let items"> {{items}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hoverrow"></tr>
+</table>

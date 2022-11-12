@@ -1,0 +1,32 @@
+div {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+}
+
+a {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(134, 134, 134);
+}
+
+.selected-tab {
+    border-bottom: 1px solid rgb(50, 50, 255);
+    color: black;
+
+}
