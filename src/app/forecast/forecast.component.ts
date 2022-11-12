@@ -6,10 +6,10 @@ import { weatherCodeConvertor } from '../core/weather-code-convertor';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './forecast.component.html',
+  styleUrls: ['./forecast.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ForecastComponent implements OnInit {
 
   actualData?: ActualForecast;
   historicalData?: ActualForecast;
