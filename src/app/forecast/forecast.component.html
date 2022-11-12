@@ -10,12 +10,15 @@
         <span class="col-sm-3 col-xs-3">Surface pressure</span>
         <span class="col-sm-2 col-xs-2">Relative humidity</span>
     </div>
-    <div *ngFor="let item of actualData.hourly.time; let i = index" class="forecast-row">
-        <span class="col-sm-3 col-xs-3">{{actualData.hourly.time[i]}}</span>
-        <span class="col-sm-2 col-xs-2">{{getWeather(actualData.hourly.weathercode[i])}}</span>
-        <span class="col-sm-2 col-xs-2">{{actualData.hourly.temperature_2m[i]}} °C</span>
-        <span class="col-sm-3 col-xs-3">{{actualData.hourly.surface_pressure[i]}} hPa</span>
-        <span class="col-sm-2 col-xs-2">{{actualData.hourly.relativehumidity_2m[i]}} %</span>
+
+    <div class="scrollable-table">
+        <div *ngFor="let item of actualData.hourly.time; let i = index" class="forecast-row">
+            <span class="col-sm-3 col-xs-3">{{actualData.hourly.time[i]}}</span>
+            <span class="col-sm-2 col-xs-2">{{getWeather(actualData.hourly.weathercode[i])}}</span>
+            <span class="col-sm-2 col-xs-2">{{actualData.hourly.temperature_2m[i]}} °C</span>
+            <span class="col-sm-3 col-xs-3">{{actualData.hourly.surface_pressure[i]}} hPa</span>
+            <span class="col-sm-2 col-xs-2">{{actualData.hourly.relativehumidity_2m[i]}} %</span>
+        </div>
     </div>
 </ng-container>
 <ng-container *ngIf="historicalData && selectedTab===2">
